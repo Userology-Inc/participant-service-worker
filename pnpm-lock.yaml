@@ -124,46 +124,6 @@ importers:
         specifier: ^5.0.0
         version: 5.4.5
 
-  examples:
-    dependencies:
-      '@livekit/agents':
-        specifier: workspace:*
-        version: link:../agents
-      '@livekit/agents-plugin-deepgram':
-        specifier: workspace:*
-        version: link:../plugins/deepgram
-      '@livekit/agents-plugin-elevenlabs':
-        specifier: workspace:*
-        version: link:../plugins/elevenlabs
-      '@livekit/agents-plugin-livekit':
-        specifier: workspace:*
-        version: link:../plugins/livekit
-      '@livekit/agents-plugin-openai':
-        specifier: workspace:*
-        version: link:../plugins/openai
-      '@livekit/agents-plugin-silero':
-        specifier: workspace:*
-        version: link:../plugins/silero
-      '@livekit/rtc-node':
-        specifier: ^0.13.4
-        version: 0.13.4
-      livekit-server-sdk:
-        specifier: ^2.9.2
-        version: 2.9.2
-      zod:
-        specifier: ^3.23.8
-        version: 3.23.8
-    devDependencies:
-      '@types/node':
-        specifier: ^22.5.5
-        version: 22.5.5
-      tsx:
-        specifier: ^4.19.2
-        version: 4.19.2
-      typescript:
-        specifier: ^5.0.0
-        version: 5.4.5
-
   plugins/cartesia:
     dependencies:
       ws:
@@ -5775,6 +5735,7 @@ snapshots:
       '@esbuild/win32-arm64': 0.23.1
       '@esbuild/win32-ia32': 0.23.1
       '@esbuild/win32-x64': 0.23.1
+    optional: true
 
   esbuild@0.24.0:
     optionalDependencies:
@@ -7648,6 +7609,7 @@ snapshots:
       get-tsconfig: 4.7.5
     optionalDependencies:
       fsevents: 2.3.3
+    optional: true
 
   tty-table@4.2.3:
     dependencies:

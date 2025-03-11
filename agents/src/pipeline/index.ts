@@ -13,3 +13,5 @@ export {
   VoicePipelineAgent,
   AgentCallContext,
 } from './pipeline_agent.js';
+
+export { SpeechHandle } from './speech_handle.js';
