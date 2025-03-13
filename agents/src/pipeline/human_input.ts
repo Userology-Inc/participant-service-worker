@@ -137,6 +137,7 @@ export class HumanInput extends (EventEmitter as new () => TypedEmitter<HumanInp
           for await (const ev of sttStream) {
             if (cancelled) return;
             if (ev.type === SpeechEventType.FINAL_TRANSCRIPT) {
+              console.log('final transcript', ev);
               this.emit(HumanInputEvent.FINAL_TRANSCRIPT, ev);
             } else if (ev.type == SpeechEventType.INTERIM_TRANSCRIPT) {
               this.emit(HumanInputEvent.INTERIM_TRANSCRIPT, ev);
