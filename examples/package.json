@@ -10,9 +10,20 @@
     "minimal": "pnpm exec tsx src/multimodal_agent.ts"
   },
   "devDependencies": {
-    "@types/node": "^22.5.5",
     "tsx": "^4.19.2",
-    "typescript": "^5.0.0"
+    "@eslint/eslintrc": "^3.3.0",
+    "@eslint/js": "^9.22.0",
+    "@trivago/prettier-plugin-sort-imports": "^5.2.2",
+    "@typescript-eslint/eslint-plugin": "^8.26.0",
+    "eslint": "^9.22.0",
+    "eslint-config-prettier": "^10.1.1",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-prettier": "^5.2.3",
+    "typescript": "^5.8.2",
+    "@livekit/rtc-node": "^0.13.4",
+    "@microsoft/api-extractor": "^7.35.0",
+    "@types/ws": "^8.5.10",
+    "tsup": "^8.3.5"
   },
   "dependencies": {
     "@livekit/agents": "workspace:*",
@@ -23,7 +34,13 @@
     "@livekit/agents-plugin-livekit": "workspace:*",
     "livekit-server-sdk": "^2.9.2",
     "@livekit/rtc-node": "^0.13.4",
-    "zod": "^3.23.8"
+    "zod": "^3.23.8",
+    "dotenv": "^16.4.7",
+    "elevenlabs": "^1.54.0",
+    "ws": "^8.16.0",
+    "module-alias": "^2.2.3",
+    "portkey-ai": "^1.7.2",
+    "sharp": "^0.33.5"
   },
   "version": null
 }

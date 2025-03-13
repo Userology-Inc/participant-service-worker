@@ -1,10 +1,9 @@
 // SPDX-FileCopyrightText: 2024 LiveKit, Inc.
 //
 // SPDX-License-Identifier: Apache-2.0
-import type { JobProcess } from '@livekit/agents';
 import {
-  AutoSubscribe,
   type JobContext,
+  type JobProcess,
   WorkerOptions,
   cli,
   defineAgent,
@@ -12,11 +11,17 @@ import {
   pipeline,
 } from '@livekit/agents';
 import * as deepgram from '@livekit/agents-plugin-deepgram';
-import * as livekit from '@livekit/agents-plugin-livekit';
+import * as elevenlabs from '@livekit/agents-plugin-elevenlabs';
 import * as openai from '@livekit/agents-plugin-openai';
 import * as silero from '@livekit/agents-plugin-silero';
+import dotenv from 'dotenv';
+import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { z } from 'zod';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const envPath = path.join(__dirname, '../.env.local');
+dotenv.config({ path: envPath });
 
 export default defineAgent({
   prewarm: async (proc: JobProcess) => {
@@ -32,7 +37,7 @@ export default defineAgent({
         'punctuation.',
     });
 
-    await ctx.connect(undefined, AutoSubscribe.AUDIO_ONLY);
+    await ctx.connect();
     console.log('waiting for participant');
     const participant = await ctx.waitForParticipant();
     console.log(`starting assistant example agent for ${participant.identity}`);
@@ -59,8 +64,8 @@ export default defineAgent({
       vad,
       new deepgram.STT(),
       new openai.LLM(),
-      new openai.TTS(),
-      { chatCtx: initialContext, fncCtx, turnDetector: new livekit.turnDetector.EOUModel() },
+      new elevenlabs.TTS(),
+      { chatCtx: initialContext, fncCtx },
     );
     agent.start(ctx.room, participant);
 
